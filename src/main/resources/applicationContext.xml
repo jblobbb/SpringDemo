@@ -10,7 +10,7 @@
     <!-- Define your beans here -->
 
     <!-- Define the dependency -->
-    <bean id="myFortune"
+    <bean id="myFortuneService"
           class="SpringDemoOne.HappyFortuneService">
     </bean>
 
@@ -19,9 +19,15 @@
           class="SpringDemoOne.TrackCoach">
 
         <!-- Set up constructor injection -->
-        <constructor-arg ref="myFortune"/>
+        <constructor-arg ref="myFortuneService"/>
     </bean>
 
+    <bean id="myCricketCoach"
+          class="SpringDemoOne.CricketCoach">
+
+        <!-- Set up setter injection -->
+        <property name="fortuneService" ref="myFortuneService" />
+    </bean>
 
 </beans>
 
